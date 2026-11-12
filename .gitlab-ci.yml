@@ -1,0 +1,11 @@
+# GitLab Pages: static site, no build step needed.
+pages:
+  stage: deploy
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+  script:
+    - mkdir -p public
+    - cp -r index.html style.css js public/
+  artifacts:
+    paths:
+      - public
