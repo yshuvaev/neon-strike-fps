@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEON STRIKE — browser FPS</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/",
+    "cannon-es": "https://cdn.jsdelivr.net/npm/cannon-es@0.20.0/dist/cannon-es.js"
+  }
+}
+</script>
+</head>
+<body>
+<canvas id="game"></canvas>
+
+<div id="hud" class="hidden">
+  <div id="crosshair"><span></span><span></span><span></span><span></span><i></i></div>
+  <div id="hitmarker"></div>
+  <div id="vignette"></div>
+  <div id="damage-flash"></div>
+
+  <div id="topbar">
+    <div id="score-box">
+      <div id="score">0</div>
+      <div id="combo" class="hidden">×1</div>
+    </div>
+    <div id="wave-box">
+      <div class="label">WAVE</div>
+      <div id="wave">1</div>
+      <div id="enemies-left"></div>
+    </div>
+  </div>
+
+  <div id="bottombar">
+    <div id="health-box">
+      <div class="label">INTEGRITY</div>
+      <div id="health-bar"><div id="health-fill"></div></div>
+    </div>
+    <div id="ammo-box">
+      <span id="ammo">30</span><span class="dim">/ ∞</span>
+      <div id="reload-hint" class="hidden">[R] RELOAD</div>
+    </div>
+  </div>
+
+  <div id="wave-banner" class="hidden"></div>
+  <div id="popups"></div>
+</div>
+
+<div id="start-screen">
+  <div class="panel">
+    <h1>NEON<span>STRIKE</span></h1>
+    <p class="sub">ARENA COMBAT SIMULATION // SECTOR 7</p>
+    <div class="controls">
+      <div><b>WASD</b> move</div>
+      <div><b>MOUSE</b> aim</div>
+      <div><b>LMB</b> fire</div>
+      <div><b>R</b> reload</div>
+      <div><b>SHIFT</b> sprint</div>
+      <div><b>SPACE</b> jump</div>
+    </div>
+    <p class="hint">Shoot the drones. Chain kills for combo multiplier.<br>Red barrels are your friends. Survive the waves.</p>
+    <button id="play-btn">▶ &nbsp;DEPLOY</button>
+    <p class="best" id="best-line"></p>
+  </div>
+</div>
+
+<div id="gameover-screen" class="hidden">
+  <div class="panel">
+    <h2>SIGNAL LOST</h2>
+    <p id="final-stats"></p>
+    <button id="restart-btn">↻ &nbsp;REDEPLOY</button>
+  </div>
+</div>
+
+<div id="pause-screen" class="hidden">
+  <div class="panel"><h2>PAUSED</h2><p class="hint">Click to resume</p></div>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
